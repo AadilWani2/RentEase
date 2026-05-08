@@ -30,7 +30,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://rent-ease-x4l1.vercel.app/",
+    origin: process.env.CLIENT_URL,
     credentials: true,
   })
 );
