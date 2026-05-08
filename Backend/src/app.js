@@ -30,7 +30,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://rent-ease-x4l1.vercel.app/",
     credentials: true,
   })
 );
