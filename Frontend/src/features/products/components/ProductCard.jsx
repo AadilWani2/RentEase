@@ -21,56 +21,59 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="vibrant-card group relative h-full flex flex-col p-6">
-      <Link to={`/products/${product._id}`} className="flex flex-col h-full">
-        {/* Top: Wishlist Button */}
-        <div className="flex justify-end mb-4">
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              toggleWishlist(product);
-            }}
-            className={`w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center transition-all ${
-              isWishlisted ? "bg-primary text-white border-transparent" : "bg-white text-black hover:border-black"
-            }`}
-          >
-            <FiHeart className={isWishlisted ? "fill-current" : ""} />
-          </button>
-        </div>
-
-        {/* Middle: Image Layer */}
-        <div className="relative aspect-square mb-8 p-4">
+    <div className="relative group overflow-hidden bg-white rounded-[2rem] border border-gray-100 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_40px_80px_rgba(0,0,0,0.06)]">
+      <Link to={`/products/${product._id}`} className="block p-4">
+        {/* Visual Showcase */}
+        <div className="relative aspect-[4/5] rounded-[1.5rem] bg-gray-50 overflow-hidden flex items-center justify-center mb-6">
+          <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-500" />
+          
           <img
             src={product.images?.[0]}
             alt={product.title}
-            className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
+            className="w-[85%] h-[85%] object-contain transition-all duration-1000 group-hover:scale-110 drop-shadow-lg"
           />
-        </div>
 
-        {/* Bottom: Info Layer */}
-        <div className="mt-auto pt-6 border-t border-gray-50">
-          <div className="flex justify-between items-start mb-2">
-            <div className="space-y-1">
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">
-                {product.category}
-              </span>
-              <h3 className="text-lg font-black text-black leading-tight">
-                {product.title}
-              </h3>
-            </div>
-            <span className="text-lg font-black text-black">₹{product.monthlyRent}</span>
-          </div>
-
-          <div className="flex justify-between items-center mt-6">
-            <span className="text-[10px] font-bold text-text-muted uppercase tracking-widest">
-              Available Now
-            </span>
+          {/* Quick Actions Overlay */}
+          <div className="absolute top-4 right-4 flex flex-col gap-3 translate-x-12 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500">
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                toggleWishlist(product);
+              }}
+              className={`w-12 h-12 rounded-full flex items-center justify-center shadow-2xl transition-all ${
+                isWishlisted ? "bg-primary text-white" : "bg-white text-black hover:bg-black hover:text-white"
+              }`}
+            >
+              <FiHeart className={isWishlisted ? "fill-current" : ""} />
+            </button>
             <button
               onClick={handleAddToCart}
-              className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center hover:bg-primary transition-colors active:scale-90 shadow-xl"
+              className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center shadow-2xl hover:bg-primary transition-all"
             >
               <FiPlus className="text-xl" />
             </button>
+          </div>
+
+          <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-md text-white px-3 py-1 rounded-full text-[8px] font-black tracking-widest uppercase">
+            {product.category}
+          </div>
+        </div>
+
+        {/* Content Layer */}
+        <div className="px-2 pb-2">
+          <div className="flex justify-between items-end">
+            <div className="space-y-1">
+              <h3 className="text-lg font-black text-black leading-none uppercase tracking-tighter">
+                {product.title}
+              </h3>
+              <p className="text-[10px] font-bold text-text-muted uppercase tracking-widest italic">
+                Architectural Original
+              </p>
+            </div>
+            <div className="text-right">
+              <span className="text-xl font-black text-black">₹{product.monthlyRent}</span>
+              <p className="text-[8px] font-black text-gray-400 uppercase tracking-widest">per month</p>
+            </div>
           </div>
         </div>
       </Link>

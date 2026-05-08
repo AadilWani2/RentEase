@@ -58,36 +58,20 @@ const Products = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white pt-24 md:pt-40 pb-20 md:pb-40 relative overflow-hidden">
+    <div className="min-h-screen bg-white pt-16 md:pt-32 pb-20 md:pb-40 relative overflow-hidden">
       {/* Decorative Accent */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="vibrant-container relative z-10">
-        <div className="mb-24">
-          <motion.div
-            initial={{ y: 30 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <span className="text-[10px] font-black tracking-[0.4em] text-primary uppercase mb-6 block">
-              {filters.category ? filters.category.replace("-", " ") : "The Catalog"}
-            </span>
-            <h1 className="text-4xl md:text-[6.5rem] font-black text-black tracking-tighter leading-[0.9] uppercase">
-              {filters.category ? (
-                <>
-                  {filters.category.split("-")[0]} — <br className="hidden md:block" />
-                  <span className="text-primary italic">{filters.category.split("-")[1] || "COLLECTION"}</span>
-                </>
-              ) : (
-                <>
-                  UPGRADE — <br className="hidden md:block" />
-                  <span className="text-primary italic">EVERY</span> ROOM.
-                </>
-              )}
-            </h1>
-          </motion.div>
-        </div>
-
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-10 md:mb-12"
+        >
+          <span className="text-[9px] md:text-[10px] font-black tracking-[0.5em] text-primary uppercase">
+            {filters.category ? filters.category.replace("-", " ") : "The Catalog"} — Curated Selection
+          </span>
+        </motion.div>
         <div className="grid lg:grid-cols-12 gap-16">
           {/* Filters Sidebar */}
           <motion.div

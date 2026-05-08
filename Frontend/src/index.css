@@ -94,9 +94,15 @@ body {
 
 /* Grid */
 .vibrant-container {
-  max-width: 1400px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .vibrant-container {
+    padding: 0 4rem;
+  }
 }
 
 .vibrant-input {

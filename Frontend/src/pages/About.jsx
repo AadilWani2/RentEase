@@ -18,7 +18,7 @@ const About = () => {
             transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="text-[10px] font-black tracking-[0.4em] text-primary uppercase mb-6 block">Our Narrative</span>
-            <h1 className="text-5xl md:text-[8rem] font-black text-black tracking-tighter leading-none uppercase">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-black tracking-tighter leading-none uppercase">
               DESIGN — <br className="hidden md:block" />
               <span className="text-primary italic">FOR THE</span> <br className="hidden md:block" />
               CURIOUS.

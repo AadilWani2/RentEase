@@ -131,7 +131,7 @@ const ProductDetails = () => {
                 <span className="text-[10px] font-black tracking-[0.4em] text-primary uppercase">
                   {product.category} Collection
                 </span>
-                <h1 className="text-4xl md:text-7xl font-black tracking-tighter text-black leading-none uppercase">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter text-black leading-none uppercase">
                   {product.title}
                 </h1>
                 <p className="text-3xl md:text-4xl font-black text-black">
