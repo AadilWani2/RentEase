@@ -10,19 +10,36 @@ const About = () => {
       <div className="absolute bottom-0 left-0 w-[200px] md:w-[600px] h-[200px] md:h-[600px] bg-secondary/10 rounded-full blur-[80px] md:blur-[120px] pointer-events-none" />
 
       <div className="vibrant-container relative z-10">
-        {/* Hero Section */}
-        <div className="mb-32">
+        {/* Hero Section - Redesigned with refined small text */}
+        <div className="mb-20 md:mb-32">
           <motion.div
-            initial={{ y: 30 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2 }}
+            className="max-w-2xl"
           >
-            <span className="text-[10px] font-black tracking-[0.4em] text-primary uppercase mb-6 block">Our Narrative</span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-black tracking-tighter leading-none uppercase">
-              DESIGN — <br className="hidden md:block" />
-              <span className="text-primary italic">FOR THE</span> <br className="hidden md:block" />
-              CURIOUS.
-            </h1>
+            <div className="space-y-8">
+              <div className="space-y-3">
+                <span className="text-[10px] font-black tracking-[0.6em] text-primary uppercase block">Established MMXXIV</span>
+                <span className="text-[10px] font-bold tracking-[0.4em] text-black uppercase block border-l-2 border-primary pl-4">The pursuit of architectural form and functional freedom.</span>
+              </div>
+              
+              <div className="space-y-6">
+                <p className="text-[11px] md:text-xs font-bold text-black uppercase tracking-[0.3em] leading-relaxed">
+                  RentEase was born from a singular obsession: Why should the world's most evocative designs be static?
+                </p>
+                <p className="text-[10px] font-medium text-text-muted uppercase tracking-[0.2em] leading-loose max-w-lg italic">
+                  We bridge the divide between museum-grade aesthetics and the fluid nature of contemporary life. This is design for the transient, the curious, and the uncompromising.
+                </p>
+              </div>
+
+              <div className="pt-6">
+                <div className="inline-flex items-center gap-4 py-2 border-b border-gray-100">
+                  <span className="text-[9px] font-black tracking-widest uppercase">Scroll for the narrative</span>
+                  <div className="w-8 h-[1px] bg-primary animate-pulse" />
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
 
