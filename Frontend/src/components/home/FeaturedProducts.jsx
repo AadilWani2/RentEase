@@ -51,10 +51,6 @@ const FeaturedProducts = () => {
             viewport={{ once: true }}
             className="space-y-4"
           >
-            <div className="flex items-center gap-4 text-primary">
-              <span className="w-12 h-px bg-primary" />
-              <span className="text-[10px] font-black tracking-[0.4em] uppercase">Autumn / Winter '24</span>
-            </div>
             <h2 className="text-6xl md:text-9xl font-black text-black tracking-tighter uppercase leading-[0.8] mb-4">
               The <span className="text-primary italic">Edit.</span>
             </h2>

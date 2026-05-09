@@ -92,8 +92,13 @@ const Navbar = () => {
     >
       <div className="vibrant-container flex justify-between items-center">
         {/* Logo */}
-        <Link to="/" className="text-2xl font-black tracking-tighter text-black flex items-center gap-1">
-          RentEase<span className="w-2 h-2 bg-primary rounded-full" />
+        <Link to="/" className="flex items-center gap-2 group">
+          <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center group-hover:bg-primary transition-all rotate-3 group-hover:rotate-0">
+            <span className="text-white font-black text-sm tracking-tighter">R</span>
+          </div>
+          <span className="text-xl font-black tracking-tighter text-black uppercase">
+            Rent<span className="text-primary italic">Ease.</span>
+          </span>
         </Link>
 
         {/* Desktop Links */}

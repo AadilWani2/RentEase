@@ -21,10 +21,6 @@ const HeroSection = () => {
               transition={{ duration: 0.8 }}
               className="space-y-6"
             >
-              <div className="inline-flex items-center gap-3 px-4 py-2 bg-black text-white rounded-full">
-                <span className="w-2 h-2 bg-primary rounded-full animate-ping" />
-                <span className="text-[10px] font-black tracking-[0.3em] uppercase">Autumn / Winter '24</span>
-              </div>
               
               <h1 className="text-6xl md:text-8xl font-black text-black leading-[0.85] tracking-tighter uppercase">
                 Art — <br />
