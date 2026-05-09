@@ -97,114 +97,116 @@ const Navbar = () => {
   ];
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
-        isScrolled ? "bg-white/80 backdrop-blur-md py-4 border-b border-gray-100 shadow-sm" : "bg-transparent py-6"
-      }`}
-    >
-      <div className="vibrant-container flex justify-between items-center">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center group-hover:bg-primary transition-all rotate-3 group-hover:rotate-0">
-            <span className="text-white font-black text-sm tracking-tighter">R</span>
-          </div>
-          <span className="text-xl font-black tracking-tighter text-black uppercase">
-            Rent<span className="text-primary italic">Ease.</span>
-          </span>
-        </Link>
+    <>
+      <nav 
+        className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
+          isScrolled ? "bg-white/80 backdrop-blur-md py-4 border-b border-gray-100 shadow-sm" : "bg-transparent py-6"
+        }`}
+      >
+        <div className="vibrant-container flex justify-between items-center">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-2 group">
+            <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center group-hover:bg-primary transition-all rotate-3 group-hover:rotate-0">
+              <span className="text-white font-black text-sm tracking-tighter">R</span>
+            </div>
+            <span className="text-xl font-black tracking-tighter text-black uppercase">
+              Rent<span className="text-primary italic">Ease.</span>
+            </span>
+          </Link>
 
-        {/* Desktop Links */}
-        <div className="hidden lg:flex items-center gap-10">
-          {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
-              to={link.path}
-              className={`text-sm font-bold transition-all ${
-                location.pathname === link.path ? "text-primary" : "text-black hover:text-primary"
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
-        </div>
-
-        {/* Action Icons */}
-        <div className="flex items-center gap-4">
-          <div className="hidden md:flex items-center gap-6 pr-6 border-r border-gray-200">
-            <button 
-              onClick={() => setIsSearchOpen(true)}
-              className="text-black hover:text-primary transition-colors"
-            >
-              <FiSearch className="text-xl stroke-[2.5px]" />
-            </button>
-            <Link to="/wishlist" className="relative text-black hover:text-primary transition-colors">
-              <FiHeart className="text-xl stroke-[2.5px]" />
-              {wishlist.length > 0 && (
-                <span className="absolute -top-1 -right-1 w-4 h-4 bg-primary text-white text-[9px] font-black rounded-full flex items-center justify-center">
-                  {wishlist.length}
-                </span>
-              )}
-            </Link>
-            <Link to="/cart" className="relative text-black hover:text-primary transition-colors">
-              <FiShoppingCart className="text-xl stroke-[2.5px]" />
-              {cart?.items?.length > 0 && (
-                <span className="absolute -top-1 -right-1 w-4 h-4 bg-black text-white text-[9px] font-black rounded-full flex items-center justify-center">
-                  {cart.items.length}
-                </span>
-              )}
-            </Link>
-          </div>
-
-          <div className="flex items-center gap-4">
-            {user ? (
-              <div className="flex items-center gap-5">
-                {user.role === "admin" && (
-                  <Link 
-                    to="/admin/dashboard" 
-                    className="hidden md:block text-[10px] font-black tracking-widest bg-primary text-white px-3 py-1 rounded-full uppercase"
-                  >
-                    Admin
-                  </Link>
-                )}
-                
-                <Link to={user.role === "admin" ? "/admin/dashboard" : "/dashboard"} className="flex items-center gap-2 group">
-                  <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden border-2 border-transparent group-hover:border-primary transition-all relative">
-                    {user.avatar ? (
-                      <img src={user.avatar} alt="" className="w-full h-full object-cover" />
-                    ) : (
-                      <FiUser className="text-xl" />
-                    )}
-                    {user.role === "admin" && (
-                      <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary rounded-full border-2 border-white" />
-                    )}
-                  </div>
-                </Link>
-                
-                <button 
-                  onClick={handleLogout} 
-                  className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center text-black hover:text-primary hover:border-primary transition-all"
-                >
-                  <FiLogOut className="text-lg stroke-[2.5px]" />
-                </button>
-              </div>
-            ) : (
+          {/* Desktop Links */}
+          <div className="hidden lg:flex items-center gap-10">
+            {navLinks.map((link) => (
               <Link 
-                to="/login"
-                className="pill-button px-6 py-2.5 text-xs"
+                key={link.name} 
+                to={link.path}
+                className={`text-sm font-bold transition-all ${
+                  location.pathname === link.path ? "text-primary" : "text-black hover:text-primary"
+                }`}
               >
-                Login
+                {link.name}
               </Link>
-            )}
+            ))}
+          </div>
 
-            <button 
-              className="lg:hidden text-black"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-            </button>
+          {/* Action Icons */}
+          <div className="flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-6 pr-6 border-r border-gray-200">
+              <button 
+                onClick={() => setIsSearchOpen(true)}
+                className="text-black hover:text-primary transition-colors"
+              >
+                <FiSearch className="text-xl stroke-[2.5px]" />
+              </button>
+              <Link to="/wishlist" className="relative text-black hover:text-primary transition-colors">
+                <FiHeart className="text-xl stroke-[2.5px]" />
+                {wishlist.length > 0 && (
+                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-primary text-white text-[9px] font-black rounded-full flex items-center justify-center">
+                    {wishlist.length}
+                  </span>
+                )}
+              </Link>
+              <Link to="/cart" className="relative text-black hover:text-primary transition-colors">
+                <FiShoppingCart className="text-xl stroke-[2.5px]" />
+                {cart?.items?.length > 0 && (
+                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-black text-white text-[9px] font-black rounded-full flex items-center justify-center">
+                    {cart.items.length}
+                  </span>
+                )}
+              </Link>
+            </div>
+
+            <div className="flex items-center gap-4">
+              {user ? (
+                <div className="flex items-center gap-5">
+                  {user.role === "admin" && (
+                    <Link 
+                      to="/admin/dashboard" 
+                      className="hidden md:block text-[10px] font-black tracking-widest bg-primary text-white px-3 py-1 rounded-full uppercase"
+                    >
+                      Admin
+                    </Link>
+                  )}
+                  
+                  <Link to={user.role === "admin" ? "/admin/dashboard" : "/dashboard"} className="flex items-center gap-2 group">
+                    <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden border-2 border-transparent group-hover:border-primary transition-all relative">
+                      {user.avatar ? (
+                        <img src={user.avatar} alt="" className="w-full h-full object-cover" />
+                      ) : (
+                        <FiUser className="text-xl" />
+                      )}
+                      {user.role === "admin" && (
+                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary rounded-full border-2 border-white" />
+                      )}
+                    </div>
+                  </Link>
+                  
+                  <button 
+                    onClick={handleLogout} 
+                    className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center text-black hover:text-primary hover:border-primary transition-all"
+                  >
+                    <FiLogOut className="text-lg stroke-[2.5px]" />
+                  </button>
+                </div>
+              ) : (
+                <Link 
+                  to="/login"
+                  className="pill-button px-6 py-2.5 text-xs"
+                >
+                  Login
+                </Link>
+              )}
+
+              <button 
+                className="lg:hidden text-black"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              >
+                {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </nav>
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -247,7 +249,7 @@ const Navbar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-white/95 backdrop-blur-xl z-[100] flex items-center justify-center p-10"
+            className="fixed inset-0 bg-white z-[100] flex items-center justify-center p-10"
           >
             <button 
               onClick={() => setIsSearchOpen(false)}
@@ -367,7 +369,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </>
   );
 };
 
