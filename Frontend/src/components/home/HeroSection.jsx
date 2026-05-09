@@ -21,12 +21,9 @@ const HeroSection = () => {
               transition={{ duration: 0.8 }}
               className="space-y-6"
             >
-              <div className="inline-flex items-center gap-4 px-6 py-3 bg-white border border-gray-100 shadow-sm rounded-full">
-                <span className="text-sm font-black tracking-tighter text-black flex items-center gap-1">
-                  RentEase<span className="w-2 h-2 bg-primary rounded-full" />
-                </span>
-                <div className="w-px h-4 bg-gray-200" />
-                <span className="text-[9px] font-black tracking-[0.3em] text-primary uppercase">Premium Selection</span>
+              <div className="inline-flex items-center gap-3 px-4 py-2 bg-black text-white rounded-full">
+                <span className="w-2 h-2 bg-primary rounded-full animate-ping" />
+                <span className="text-[10px] font-black tracking-[0.3em] uppercase">Autumn / Winter '24</span>
               </div>
               
               <h1 className="text-6xl md:text-8xl font-black text-black leading-[0.85] tracking-tighter uppercase">
