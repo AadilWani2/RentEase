@@ -36,6 +36,18 @@ const Navbar = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Prevent scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
+
   // Live Search Effect
   useEffect(() => {
     const delayDebounceFn = setTimeout(async () => {
@@ -198,10 +210,11 @@ const Navbar = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, x: 100 }}
+            initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 100 }}
-            className="fixed inset-0 bg-white z-[60] flex flex-col p-10 pt-32 lg:hidden"
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 bg-white z-[100] flex flex-col p-10 pt-32 lg:hidden"
           >
             <button onClick={() => setIsMobileMenuOpen(false)} className="absolute top-10 right-10 text-black">
               <FiX size={32} />
