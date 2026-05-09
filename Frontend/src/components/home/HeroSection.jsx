@@ -5,7 +5,7 @@ import { FaStar } from "react-icons/fa";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[85vh] flex items-center pt-10 overflow-hidden bg-white">
+    <section className="relative min-h-[85vh] flex items-center pt-2 overflow-hidden bg-white">
       {/* Dynamic Background Elements */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gray-50 -z-10" />
       <div className="absolute top-[20%] left-[10%] w-[400px] h-[400px] bg-primary/5 rounded-full blur-[120px] -z-10 animate-pulse" />
